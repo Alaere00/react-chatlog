@@ -4,6 +4,8 @@ import './ChatEntry.css';
 
 
 const ChatEntry = (props) => {
+  const date1 = new Date(props.timeStamp) 
+  const year = 2022 - date1.getFullYear()
 
   return (
     <div className="chat-entry local">
@@ -12,7 +14,7 @@ const ChatEntry = (props) => {
         <p>
           {props.body}
         </p>
-        <p className="entry-time">{props.timeStamp}</p>
+        <p className="entry-time">{`${year} years ago`}</p>
         <button className="like">🤍</button>
       </section>
     </div>
