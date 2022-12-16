@@ -13,7 +13,7 @@ const App = () => {
       </header>
       <main>
         <ChatEntry sender="blank" body="blank" timeStamp="blank"></ChatEntry>
-        <ChatLog></ChatLog>
+        {/* <ChatLog></ChatLog> */}
       </main>
     </div>
   );

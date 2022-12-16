@@ -4,15 +4,7 @@ import './ChatEntry.css';
 
 
 const ChatEntry = (props) => {
-  const getByTextContent = (text) => {
-    // Passing function to `getByText`
-    return screen.getByText((content, element) => {
-        const hasText = element => element.textContent === text
-        const elementHasText = hasText(element)
-        const childrenDontHaveText = Array.from(element?.children || []).every(child => !hasText(child))
-        return elementHasText && childrenDontHaveText
-  })
-}
+
   return (
     <div className="chat-entry local">
       <h2 className="entry-name">{props.sender}</h2>
