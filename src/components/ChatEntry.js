@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './ChatEntry.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 
 const ChatEntry = (props) => {
   const date1 = new Date(props.timeStamp) 
   const year = 2022 - date1.getFullYear()
+
+  const [likes, setLikes] = useState(0)
 
   return (
     <div className="chat-entry local">
@@ -21,10 +23,10 @@ const ChatEntry = (props) => {
   );
 };
 
-// ChatEntry.propTypes = {
-//   sender: PropTypes.string,
-//   body: PropTypes.string,
-//   timeStamp: PropTypes.string
-// };
+ChatEntry.propTypes = {
+  sender: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  timeStamp: PropTypes.string.isRequired
+};
 
 export default ChatEntry;
