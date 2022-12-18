@@ -3,26 +3,40 @@ import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
 const ChatLog = (props) => {
-  const entryData = props.entries.map(entry => {
-    console.log(entry.sender)
-    console.log(entry.body)
-    return (<p key={entry.id}>
-      <ChatEntry sender={entry.sender} body={entry.body} timeStamp={entry.timeStamp}></ChatEntry>
-      </p>
+  const getEntryDataJSX = (entries) => {
+    return entries.map((entry) => {
+      return (
+      <ChatEntry
+      key={entry.id}
+      sender={entry.sender} 
+      body={entry.body} 
+      timeStamp={entry.timeStamp}
+      liked={entry.liked}
+      />
     );
   });
-  return (
-      <section>
-        <h2>ChatLog</h2>
-        {entryData}
-      </section>
-    );
+}
+  
+  return <ul>{getEntryDataJSX(props.entries)}</ul>
 };
+
 
 export default ChatLog; 
 
-ChatLog.protoTypes = {
+// ChatLog.propTypes = {
+//   sender: PropTypes.string,
+//   body: PropTypes.string,
+//   timeStamp: PropTypes.string,
+//   liked: PropTypes.bool,
+// }
+  
+
+ChatLog.propTypes = {
+  isLiked: PropTypes.arrayOf(
+    PropTypes.shape({
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.string.isRequired
+  timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.string.isRequired,
+})),
 }

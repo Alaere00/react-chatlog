@@ -1,19 +1,35 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import ChatEntry from './components/ChatEntry';
-// import ChatLog from './components/Chatlog';
+import ChatLog from './components/Chatlog'
 import chatMessages from './data/messages.json';
 
 
 const App = () => {
+  const [likeCount, setLikeCount] = useState(0)
+
+//   const changeHeart = (id) => {
+//     updateLikes(isLiked => isLiked.map(chat => {
+//       if (chat.id === id){
+//         return {...chat, liked: !chat.liked}
+//       } else {
+//         return chat
+//       }
+//     }));
+// };
+
+const [isLiked, updateLiked] = useState(false);
+
+
   return (
     <div id="App">
       <header>
         <h1>Application title</h1>
+        <h2>{likeCount} {`❤️`}</h2>
       </header>
       <main>
-        <ChatEntry></ChatEntry>
-      {/* <ChatLog></ChatLog> */}
+        <ChatLog
+        entries={chatMessages}>
+        </ChatLog>
       </main>
     </div>
   );

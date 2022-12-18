@@ -7,7 +7,7 @@ const ChatEntry = (props) => {
   const date1 = new Date(props.timeStamp) 
   const year = 2022 - date1.getFullYear()
 
-  const [likes, setLikes] = useState(0)
+  const [isLiked, updateLiked] = useState(true);
 
   return (
     <div className="chat-entry local">
@@ -16,8 +16,10 @@ const ChatEntry = (props) => {
         <p>
           {props.body}
         </p>
-        <p className="entry-time">{`${year} years ago`}</p>
-        <button className="like">🤍</button>
+        <p className="entry-time">{`${year} years ago`}
+        </p>
+        <button onClick={() => updateLiked(!isLiked)}
+        >{isLiked ? '🤍' : '❤️'}</button>
       </section>
     </div>
   );
@@ -26,7 +28,8 @@ const ChatEntry = (props) => {
 ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.string.isRequired
+  timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool,
 };
 
 export default ChatEntry;
