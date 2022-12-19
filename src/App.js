@@ -1,31 +1,30 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import ChatLog from './components/ChatLog'
+import ChatLog from './components/foo';
 import messages from './data/messages.json';
-
 
 const App = () => {
   const [likedMessage, setLiked] = useState(messages);
 
   const cntTotalLikes = (likedMessage) => {
-    return likedMessage.reduce((total, message) =>{
-      if (message.liked){
+    return likedMessage.reduce((total, message) => {
+      if (message.liked) {
         total += 1;
-    }
-    return total;
-    }, 0 )
-  }
-  
+      }
+      return total;
+    }, 0);
+  };
+
   const toggleHeart = (id) => {
-    const liked = likedMessage.map(message => {
-      if (id === message.id){
-        return {...message, liked: !message.liked}
+    const liked = likedMessage.map((message) => {
+      if (id === message.id) {
+        return { ...message, liked: !message.liked };
       } else {
-        return message
+        return message;
       }
     });
-    setLiked(liked)
-};
+    setLiked(liked);
+  };
 
   const totalLikes = cntTotalLikes(likedMessage);
 
@@ -33,12 +32,12 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Application title</h1>
-        <h2>{totalLikes} {`❤️s`}</h2>
+        <h2>
+          {totalLikes} {`❤️s`}
+        </h2>
       </header>
       <main>
-        <ChatLog 
-        entries={messages}
-        onToggleHeart={toggleHeart}/>
+        <ChatLog entries={messages} onToggleHeart={toggleHeart} />
       </main>
     </div>
   );
