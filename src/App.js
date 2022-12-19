@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import ChatLog from './components/Chatlog'
+import ChatLog from './components/ChatLog'
 import messages from './data/messages.json';
 
 
