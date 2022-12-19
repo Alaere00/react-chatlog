@@ -15,7 +15,7 @@ const App = () => {
     return total;
     }, 0 )
   }
-
+  
   const toggleHeart = (id) => {
     const liked = likedMessage.map(message => {
       if (id === message.id){
@@ -27,11 +27,7 @@ const App = () => {
     setLiked(liked)
 };
 
-
-
-
   const totalLikes = cntTotalLikes(likedMessage);
-
 
   return (
     <div id="App">

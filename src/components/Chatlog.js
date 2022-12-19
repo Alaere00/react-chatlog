@@ -22,7 +22,6 @@ const ChatLog = (props) => {
   return <ul className='chat-entry'>{getEntryDataJSX(props.entries)}</ul>
 };
 
-
 ChatLog.propTypes = {
   entries: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
