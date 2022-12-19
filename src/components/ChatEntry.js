@@ -7,7 +7,14 @@ const ChatEntry = (props) => {
   const date1 = new Date(props.timeStamp) 
   const year = 2022 - date1.getFullYear()
 
-  const [isLiked, updateLiked] = useState(true);
+  const [likedPost, setLikedMessage] = useState(props.liked)
+
+  const toggle = id => {
+    props.onToggleHeart(id);
+    setLikedMessage(!likedPost);
+  }
+
+  const buttonClass = likedPost ? '❤️' : '🤍';
 
   return (
     <div className="chat-entry local">
@@ -18,18 +25,22 @@ const ChatEntry = (props) => {
         </p>
         <p className="entry-time">{`${year} years ago`}
         </p>
-        <button onClick={() => updateLiked(!isLiked)}
-        >{isLiked ? '🤍' : '❤️'}</button>
+        <button 
+        className="like"
+        onClick={()=> toggle(props.id)}
+        >{buttonClass}</button>
       </section>
     </div>
   );
 };
 
 ChatEntry.propTypes = {
-  sender: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.string.isRequired,
+  id: PropTypes.number,
+  sender: PropTypes.string,
+  body: PropTypes.string,
+  timeStamp: PropTypes.string,
   liked: PropTypes.bool,
+  onToggleHeart: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;

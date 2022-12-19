@@ -8,35 +8,31 @@ const ChatLog = (props) => {
       return (
       <ChatEntry
       key={entry.id}
+      id={entry.id}
       sender={entry.sender} 
       body={entry.body} 
       timeStamp={entry.timeStamp}
       liked={entry.liked}
+      onToggleHeart={props.onToggleHeart}
       />
     );
   });
 }
   
-  return <ul>{getEntryDataJSX(props.entries)}</ul>
+  return <ul className='chat-entry'>{getEntryDataJSX(props.entries)}</ul>
 };
 
 
-export default ChatLog; 
-
-// ChatLog.propTypes = {
-//   sender: PropTypes.string,
-//   body: PropTypes.string,
-//   timeStamp: PropTypes.string,
-//   liked: PropTypes.bool,
-// }
-  
-
 ChatLog.propTypes = {
-  isLiked: PropTypes.arrayOf(
-    PropTypes.shape({
-  sender: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.string.isRequired,
-  liked: PropTypes.string.isRequired,
+  entries: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    sender: PropTypes.string,
+    body: PropTypes.string,
+    timeStamp: PropTypes.string,
+    liked: PropTypes.bool,
 })),
+  onToggleHeart: PropTypes.func,
+
 }
+
+export default ChatLog; 
