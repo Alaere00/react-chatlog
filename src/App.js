@@ -31,9 +31,9 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Application Title</h1>
         <h2>
-          {totalLikes} {`❤️s`}
+          {totalLikes} {`❤️'s`}
         </h2>
       </header>
       <main>

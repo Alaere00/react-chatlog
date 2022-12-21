@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 
 const ChatEntry = (props) => {
+  const {sender} = props
   const date1 = new Date(props.timeStamp) 
   const year = 2022 - date1.getFullYear()
 
@@ -14,12 +15,15 @@ const ChatEntry = (props) => {
     setLikedMessage(!likedPost);
   }
 
+
   const buttonClass = likedPost ? '❤️' : '🤍';
 
+  const postPos = sender === 'Vladimir' ? 'local' : 'remote';
+
   return (
-    <div className="chat-entry local">
+    <div className={`chat-entry ${postPos}`}>
       <h2 className="entry-name">{props.sender}</h2>
-      <section className="entry-bubble">
+      <section className={`entry-bubble ${postPos}`}> 
         <p>
           {props.body}
         </p>

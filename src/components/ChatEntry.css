@@ -17,7 +17,7 @@ button {
 }
 
 .chat-entry .entry-bubble {
-  background-color: #ffffe0;
+  background-color: #fdf4f4;
   border-radius: 30px;
   max-width: 50rem;
   min-width: 10rem;
@@ -58,12 +58,13 @@ button {
   text-align: left;
 }
 
+
 .chat-entry.local .entry-time {
   text-align: right;
 }
 
 .chat-entry.local .entry-bubble::before {
-  background-color: #ffffe0;
+  background-color:  #fdf4f4;
   left: -18px;
 }
 
