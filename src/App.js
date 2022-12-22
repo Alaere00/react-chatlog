@@ -33,7 +33,7 @@ const App = () => {
       <header>
         <h1>Application Title</h1>
         <h2>
-          {totalLikes} {`❤️'s`}
+          {totalLikes} {`❤️s`}
         </h2>
       </header>
       <main>
