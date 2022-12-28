@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
-
+import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
   const {sender} = props
-  const date1 = new Date(props.timeStamp) 
-  const year = 2022 - date1.getFullYear()
 
   const [likedPost, setLikedMessage] = useState(props.liked)
 
@@ -27,7 +25,7 @@ const ChatEntry = (props) => {
         <p>
           {props.body}
         </p>
-        <p className="entry-time">{`${year} years ago`}
+        <p className="entry-time"><TimeStamp time={props.timeStamp}/>
         </p>
         <button 
         className="like"
